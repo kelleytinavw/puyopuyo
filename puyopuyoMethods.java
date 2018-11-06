@@ -16,7 +16,7 @@ public class puyopuyoMethods{
       }
    }
    
-   public void createBorard(){
+   public void createBoard(){
       
    }
 }
