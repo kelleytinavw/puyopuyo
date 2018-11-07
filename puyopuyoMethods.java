@@ -1,6 +1,6 @@
 public class puyopuyoMethods{
    private int SIZE = 10;
-   private int [][] boardStack = new int [SIZE][SIZE];
+   private int [][] board = new int [SIZE][SIZE];
    private int [] stack = new int [SIZE];
    private int [] queue = new int [SIZE];
    private int stack_top = 0;
@@ -8,7 +8,7 @@ public class puyopuyoMethods{
    private int rearQ = 0;
    private int count = 0;
    
-   public void storeNum(int x){
+   public void storeNum(){
       for(int i = 0; i < SIZE; i++){
          stack[i] = i+2;
          stack[i+1] = stack[i];
@@ -25,9 +25,9 @@ public class puyopuyoMethods{
       int positionY = 0;
        for(int i = stack_top -1; i >= 0; i--){
           for(int j = stack_top -1; j >= 0; j++){
-               
-               //error
-               //boardStack[stack[i]][stack[j-2]];
+               boardStack[positionX][positionY] = ;
+                positionX++;      
+                positionY++;
                stack_top-= 2;
                
           }
