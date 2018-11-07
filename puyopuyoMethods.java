@@ -1,5 +1,5 @@
 public class puyopuyoMethods{
-   private int [][] board = new int [SIZE][SIZE];
+   private int [][] boardStack = new int [SIZE][SIZE];
    private final int SIZE = 10;
    private int [] stack = new int [SIZE];
    private int [] queue = new int [SIZE];
@@ -25,7 +25,7 @@ public class puyopuyoMethods{
       int positionY = 0;
        for(int i = stack_top -1; i >= 0; i--){
           for(int j = stack_top -1; j >= 0; j++){
-               boardStack[positionX][positionY] = ;
+               boardStack[positionX][positionY] = [stack[i]][stack[j-2]];
                 positionX++;      
                 positionY++;
                stack_top-= 2;
