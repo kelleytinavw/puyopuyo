@@ -26,13 +26,13 @@ public class puyopuyoMethods{
        for(int i = stack_top -1; i >= 0; i--){
           for(int j = stack_top -1; j >= 0; j++){
                
-               boardStack[stack[i]][stack[j-2]];
-               temp_top_KW++;
-               stack_top_KW--;
+               //error
+               //boardStack[stack[i]][stack[j-2]];
+               stack_top-= 2;
                
           }
        } 
    } 
    
    
-}
+} 
