@@ -11,7 +11,7 @@ public class puyopuyoMethods{
    public void storeNum(){
       for(int i = 0; i < SIZE; i++){
          stack[i] = i+2;
-         stack[i+1] = stack[i];
+         stack[i+1] = stack[i] + 1;
          stack_top++;
       }
    }
@@ -26,7 +26,7 @@ public class puyopuyoMethods{
        for(int i = stack_top -1; i >= 0; i--){
           for(int j = stack_top -1; j >= 0; j++){
                boardStack[positionX][positionY] = ;
-                positionX++;      
+                positionX++;
                 positionY++;
                stack_top-= 2;
 
