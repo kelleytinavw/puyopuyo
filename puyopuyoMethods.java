@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class puyopuyoMethods{
@@ -20,7 +19,6 @@ public class puyopuyoMethods{
       System.out.println("Enter 20 numbers ranging from 1-9:");
       for(int i = 0; i < SIZE; i++){
          stack[i] = i+2;
-         stack[i+1] = stack[i] + 1;
          stack_top++;
       }
    }
@@ -28,10 +26,10 @@ public class puyopuyoMethods{
    public void moveToBoard(){
       int positionX = 0;
       int positionY = 0;
-       for(int i = stack_top -1; i >= 0; i--){
-          for(int j = stack_top -1; j >= 0; j++){
+       for(int i = stack_top-1; i >= 0; i--){
+          for(int j = stack_top-1; j >= 0; j++){
                boardStack[positionX][positionY] = stack[i];
-               boardStack[positionY][positionX] = stack[j-1];
+               boardStack[positionY][positionX] = stack[j];
                //having error message here trying to assign the values into the board
               //arrayIndexOutOfBoundsExeception: 10
               //at puyopuyoMethods.moveToBoard(puyopuyoMethods.java:41)
