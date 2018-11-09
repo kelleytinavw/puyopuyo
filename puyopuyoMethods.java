@@ -1,17 +1,27 @@
+
+import java.util.Scanner;
+
 public class puyopuyoMethods{
-   private int [][] boardStack = new int [SIZE][SIZE];
    private final int SIZE = 10;
+   private int [][] boardStack = new int [SIZE][SIZE];
    private int [] stack = new int [SIZE];
    private int [] queue = new int [SIZE];
    private int stack_top = 0;
    private int frontQ = 0;
    private int rearQ = 0;
    private int count = 0;
+   Scanner kb = new Scanner(System.in);
 
    public void storeNum(){
+      int num = 0;
+      System.out.println("Enter 10 numbers ranging from 1-9:");
       for(int i = 0; i < SIZE; i++){
-         stack[i] = i+2;
-         stack[i+1] = stack[i];
+         num = kb.nextInt();
+         if((num < 1) || (num > 9)){
+            System.out.println("Enter a number ranging from 1-9:");
+            num = kb.nextInt();
+         }
+         stack[i] = num;
          stack_top++;
       }
    }
@@ -25,11 +35,14 @@ public class puyopuyoMethods{
       int positionY = 0;
        for(int i = stack_top -1; i >= 0; i--){
           for(int j = stack_top -1; j >= 0; j++){
-               boardStack[positionX][positionY] = [stack[i]][stack[j-2]];
-                positionX++;      
-                positionY++;
+               boardStack[positionX][positionY] = stack[i];
+               boardStack[positionY][positionX] = stack[j-2];
+               if(boardStack[positionX][positionY] == boardStack[positionY][positionX]){
+                  
+               }
+               positionX++;
+               positionY++;      
                stack_top-= 2;
-
           }
        }
    }
