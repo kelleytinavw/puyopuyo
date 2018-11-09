@@ -2,8 +2,9 @@
 import java.util.Scanner;
 
 public class puyopuyoMethods{
-   private final int SIZE = 10;
-   private int [][] boardStack = new int [SIZE][SIZE];
+   private final int SIZE = 20;
+   private final int BOARD_SIZE
+   private int [][] boardStack = new int [BOARD_SIZE][BOARD_SIZE];
    private int [] stack = new int [SIZE];
    private int [] queue = new int [SIZE];
    private int stack_top = 0;
@@ -14,7 +15,7 @@ public class puyopuyoMethods{
 
    public void storeNum(){
       int num = 0;
-      System.out.println("Enter 10 numbers ranging from 1-9:");
+      System.out.println("Enter 20 numbers ranging from 1-9:");
       for(int i = 0; i < SIZE; i++){
          num = kb.nextInt();
          if((num < 1) || (num > 9)){
