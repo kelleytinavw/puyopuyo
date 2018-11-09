@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class puyopuyoMethods{
    private final int SIZE = 20;
-   private final int BOARD_SIZE
+   private final int BOARD_SIZE = 10;
    private int [][] boardStack = new int [BOARD_SIZE][BOARD_SIZE];
    private int [] stack = new int [SIZE];
    private int [] queue = new int [SIZE];
@@ -39,13 +39,23 @@ public class puyopuyoMethods{
                boardStack[positionX][positionY] = stack[i];
                boardStack[positionY][positionX] = stack[j-2];
                if(boardStack[positionX][positionY] == boardStack[positionY][positionX]){
+                  queue[rearQ] = boardStack[positionX][positionY];
+                  rearQ++;
+                  queue[rearQ] = boardStack[positionY][positionX];
+                  rearQ++;
                   
+                  positionX++;
+                  positionY++;      
+                  stack_top-= 2;
+               }else{
+                  positionX++;
+                  positionY++;      
+                  stack_top-= 2;               
                }
-               positionX++;
-               positionY++;      
-               stack_top-= 2;
+               
           }
        }
+       
    }
 
 
