@@ -3,6 +3,9 @@ public class puyopuyo{
       puyopuyoMethods test = new puyopuyoMethods();
       
       test.storeNum();
+      test.whichColumn();
       test.moveToBoard();
+//       test.score();
+      test.printBoard();
    }
 }
