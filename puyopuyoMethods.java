@@ -42,7 +42,6 @@ public class puyopuyoMethods{
    public void checkFullC(){
       if(stackC_top == BOARD_SIZE){
          System.out.println("Stack C is full choode another stack:");
-         
       }
    }
    
