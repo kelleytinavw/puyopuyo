@@ -1,60 +1,68 @@
 import java.util.Scanner;
+import java.Math.Random;
 
 public class puyopuyoMethods{
-   private final int SIZE = 20;
+   private final int SIZE = 30;
    private final int BOARD_SIZE = 10;
    private int [][] boardStack = new int [BOARD_SIZE][BOARD_SIZE];
-   private int [] stack = new int [SIZE];
+   private int [] stackA = new int [BOARD_SIZE];
+   private int [] stackB = new int[BOARD_SIZE];
+   private int [] stackC = new int[BOARD_SIZE];
    private int [] queue = new int [SIZE];
-   private int stack_top = 0;
+   private int stackA_top = 0;
+   private int stackB_top = 0;
+   private int stackC_top = 0;
    private int frontQ = 0;
    private int rearQ = 0;
-   private int count = 0;
-   Scanner kb = new Scanner(System.in);
+   private int score = 0;
+   private Scanner kb = new Scanner(System.in);
 
    public puyopuyoMethods(){}
 
    public void storeNum(){
-      int num = 0;
-      System.out.println("Enter 20 numbers ranging from 1-9:");
+     Random rand = new Random();
       for(int i = 0; i < SIZE; i++){
-         stack[i] = i+2;
-         stack_top++;
+         queue[i] = rand.nextInt(10) + 1;
+         rearQ++;
       }
    }
 
    public void moveToBoard(){
-      int positionX = 0;
-      int positionY = 0;
-       for(int i = stack_top-1; i >= 0; i--){
-          for(int j = stack_top-1; j >= 0; j++){
-               boardStack[positionX][positionY] = stack[i];
-               boardStack[positionY][positionX] = stack[j];
-               //having error message here trying to assign the values into the board
-              //arrayIndexOutOfBoundsExeception: 10
-              //at puyopuyoMethods.moveToBoard(puyopuyoMethods.java:41)
-              //at puyopuyo.main(puyopuyo.java:6)
-               if(boardStack[positionX][positionY] == boardStack[positionY][positionX]){
-                  queue[rearQ] = boardStack[positionX][positionY];
-                  rearQ++;
-                  queue[rearQ] = boardStack[positionY][positionX];
-                  rearQ++;
-
-                  positionX++;
-                  positionY++;
-                  if(stack_top != 1){
-                     stack_top -= 2;
-                  }
-               }else{
-                  positionX++;
-                  positionY++;
-                  stack_top-= 2;
-               }
-
-          }
-       }
-
+     switch(whichColumn.equalsIgnoreCase()) {
+       case "A": stackA[stackA_top] = queue[frontQ];
+                 frontQ++;
+                 stackA_top++;
+                 break;
+       case "B": stackB[stackB_top] = queue[frontQ];
+                 frontQ++;
+                 stackB_top++;
+                 break;
+       case "C": stackB[stackC_top] = queue[frontQ];
+                 frontQ++;
+                 stackC_top++;
+                 break;
+     }
    }
+
+   public String whichColumn() {
+     System.out.println("The number" + queue[rearQ] + "is falling! What column will it land in? ('A', 'B', 'C')");
+     String n = "";
+     n = kb.next();
+     if(n.equalsIgnoreCase("A") || ("B") || ("C"))
+      return n;
+     else {
+       System.out.println("Invalid input, try again.");
+       whichColumn();
+     }
+   }
+
+  public void score() {
+    if(stackA[stackA_top] == stackB[stackB_top] && stackC[stackC_top] == stackB[stackB_top])
+      score+=10;
+    else if(stackA[stackA_top] == stackB[stackB_top] || stackC[stackC_top] == stackB[stackB_top])
+      score+= 5;
+
+  }
 
 
 }
