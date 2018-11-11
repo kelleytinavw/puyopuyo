@@ -30,25 +30,30 @@ public class puyopuyoMethods{
       boolean isFull = false;
       if(stackA_top == BOARD_SIZE){
          System.out.println("Stack A is full choode another stack:");
-         ifFull = true;
+         isFull = true;
          whichColumn();
-         
       }
-      return isFull
+      return isFull;
    }
    
-   public void checkFullB(){
+   public boolean checkFullB(){
+      boolean isFull = false;
       if(stackB_top == BOARD_SIZE){
          System.out.println("Stack B is full choode another stack:");
+         isFull = true;
          whichColumn();
       }
+      return isFull;
    }
 
-   public void checkFullC(){
+   public boolean checkFullC(){
+      boolean isFull = false;
       if(stackC_top == BOARD_SIZE){
          System.out.println("Stack C is full choode another stack:");
+         isFull = true;
          whichColumn();
       }
+      return isFull;
    }
    
    public void moveToBoard(){
