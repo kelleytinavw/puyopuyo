@@ -4,7 +4,6 @@ import java.util.Random;
 public class puyopuyoMethods{
    private final int SIZE = 30;
    private final int BOARD_SIZE = 10;
-   //private int [][][] boardStack = new int [BOARD_SIZE][BOARD_SIZE][BOARD_SIZE];
    private int [] stackA = new int [BOARD_SIZE];
    private int [] stackB = new int[BOARD_SIZE];
    private int [] stackC = new int[BOARD_SIZE];
@@ -27,40 +26,44 @@ public class puyopuyoMethods{
       }
    }
    
-   public void checkFullA(){
+   public boolean checkFullA(){
+      boolean isFull = false;
       if(stackA_top == BOARD_SIZE){
          System.out.println("Stack A is full choode another stack:");
+         ifFull = true;
+         whichColumn();
+         
       }
+      return isFull
    }
    
    public void checkFullB(){
       if(stackB_top == BOARD_SIZE){
          System.out.println("Stack B is full choode another stack:");
+         whichColumn();
       }
    }
 
    public void checkFullC(){
       if(stackC_top == BOARD_SIZE){
          System.out.println("Stack C is full choode another stack:");
+         whichColumn();
       }
    }
    
    public void moveToBoard(){
      switch(whichColumn()) {
        case "A": 
-                 checkFullA();
                  stackA[stackA_top] = queue[frontQ];
                  frontQ++;
                  stackA_top++;
                  break;
        case "B": 
-                 checkFullB();
                  stackB[stackB_top] = queue[frontQ];
                  frontQ++;
                  stackB_top++;
                  break;
        case "C": 
-                 checkFullB();
                  stackB[stackC_top] = queue[frontQ];
                  frontQ++;
                  stackC_top++;
@@ -68,10 +71,13 @@ public class puyopuyoMethods{
      }
    }
 
-   public String whichColumn() {
-     System.out.println("The number " + queue[frontQ] + " is falling! What column will it land in? ('A', 'B', 'C')");
+   public String whichColumn(){
      String n = "";
+     System.out.println("The number " + queue[frontQ] + " is falling! What column will it land in? ('A', 'B', 'C')");
      n = kb.next();
+     checkFullA();
+     checkFullB();
+     checkFullC();     
      if(!((n.equalsIgnoreCase("A")) || (n.equalsIgnoreCase("B")) || (n.equalsIgnoreCase("C")))){
        System.out.println("Invalid input, try again.");
        whichColumn();
@@ -90,9 +96,7 @@ public class puyopuyoMethods{
   }
   
   public void printBoard(){
-   for(int i = 0; i < BOARD_SIZE; i++){
-      switch(whichColumn()){
-          case "A": 
+         if(whichColumn().equalsIgnoreCase("A")){ 
              int trackA = stackA_top;
              stackA[stackA_top] = queue[frontQ];
              for(int j = stackA_top -1; j >= 0; j--){
@@ -100,8 +104,8 @@ public class puyopuyoMethods{
                stackA_top--;
              }
              stackA_top = trackA;
-             break;
-          case "B": 
+          }
+          if(whichColumn().equalsIgnoreCase("B")){
              int trackB = stackB_top;
              stackB[stackB_top] = queue[frontQ];
              for(int j = stackB_top -1; j >= 0; j--){
@@ -109,8 +113,8 @@ public class puyopuyoMethods{
                stackB_top--;
              }
              stackB_top = trackB;
-             break;
-          case "C": 
+           }
+          if(whichColumn().equalsIgnoreCase("C")){ 
              int trackC = stackC_top;
              stackB[stackC_top] = queue[frontQ];
              for(int j = stackB_top -1; j >= 0; j--){
@@ -118,9 +122,7 @@ public class puyopuyoMethods{
                stackC_top--;
              }
              stackC_top = trackC;
-             break;
-      }   
-   }
+         }   
   } 
   
 }

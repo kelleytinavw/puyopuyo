@@ -3,9 +3,11 @@ public class puyopuyo{
       puyopuyoMethods test = new puyopuyoMethods();
       
       test.storeNum();
-      test.whichColumn();
-      test.moveToBoard();
+      for(int i = 0; i < 30; i++){
+         test.whichColumn();
+         test.moveToBoard();
+      }
 //       test.score();
-      test.printBoard();
+    //  test.printBoard();
    }
 }
