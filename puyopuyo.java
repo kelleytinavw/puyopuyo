@@ -4,12 +4,10 @@ public class puyopuyo{
       
       test.storeNum();
       for(int i = 0; i < 30; i++){
-         test.whichColumn();
-         test.moveToBoard();
+        test.printBoard();
       }
 //       test.score();
-     for(int i = 0; i < 30; i++){
-        test.printBoard();
-      }  
+     // for(int i = 0; i < 30; i++){
+//       }  
    }
 }
