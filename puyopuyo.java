@@ -8,6 +8,8 @@ public class puyopuyo{
          test.moveToBoard();
       }
 //       test.score();
-    //  test.printBoard();
+     for(int i = 0; i < 30; i++){
+        test.printBoard();
+      }  
    }
 }

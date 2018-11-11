@@ -57,7 +57,7 @@ public class puyopuyoMethods{
    }
    
    public void moveToBoard(){
-     switch(whichColumn()) {
+     switch(whichColumn()){
        case "A": 
                  stackA[stackA_top] = queue[frontQ];
                  frontQ++;
@@ -79,10 +79,7 @@ public class puyopuyoMethods{
    public String whichColumn(){
      String n = "";
      System.out.println("The number " + queue[frontQ] + " is falling! What column will it land in? ('A', 'B', 'C')");
-     n = kb.next();
-     checkFullA();
-     checkFullB();
-     checkFullC();     
+     n = kb.next();    
      if(!((n.equalsIgnoreCase("A")) || (n.equalsIgnoreCase("B")) || (n.equalsIgnoreCase("C")))){
        System.out.println("Invalid input, try again.");
        whichColumn();
@@ -91,43 +88,20 @@ public class puyopuyoMethods{
      return n;
    }
 
-  public void score() {
-    if(stackA[stackA_top-1] == stackB[stackA_top-1] && stackC[stackA_top-1] == stackB[stackA_top-1]){
-      score+=10;
-    }else if(stackA[stackA_top-1] == stackB[stackA_top-1] || stackC[stackC_top-1] == stackB[stackC_top-1]){
-      score+= 5;
-    }
-    System.out.println("The score is: " + score);
-  }
+//   public void score() {
+//     if(stackA[stackA_top-1] == stackB[stackA_top-1] && stackC[stackA_top-1] == stackB[stackA_top-1]){
+//       score+=10;
+//     }else if(stackA[stackA_top-1] == stackB[stackA_top-1] || stackC[stackC_top-1] == stackB[stackC_top-1]){
+//       score+= 5;
+//     }
+//     System.out.println("The score is: " + score);
+//   }
   
   public void printBoard(){
-         if(whichColumn().equalsIgnoreCase("A")){ 
-             int trackA = stackA_top;
-             stackA[stackA_top] = queue[frontQ];
-             for(int j = stackA_top -1; j >= 0; j--){
-               System.out.println(stackA[stackA_top] + " " + stackB[stackB_top] + " " + stackC[stackC_top]);
-               stackA_top--;
-             }
-             stackA_top = trackA;
-          }
-          if(whichColumn().equalsIgnoreCase("B")){
-             int trackB = stackB_top;
-             stackB[stackB_top] = queue[frontQ];
-             for(int j = stackB_top -1; j >= 0; j--){
-               System.out.println(stackA[stackA_top] + " " + stackB[stackB_top] + " " + stackC[stackC_top]);
-               stackB_top--;
-             }
-             stackB_top = trackB;
-           }
-          if(whichColumn().equalsIgnoreCase("C")){ 
-             int trackC = stackC_top;
-             stackB[stackC_top] = queue[frontQ];
-             for(int j = stackB_top -1; j >= 0; j--){
-               System.out.println(stackA[stackA_top] + " " + stackB[stackB_top] + " " + stackC[stackC_top]);
-               stackC_top--;
-             }
-             stackC_top = trackC;
-         }   
+   System.out.println(stackA[stackA_top] + " " + stackB[stackB_top] + " " + stackC[stackC_top]);
+   stackA_top--;
+   stackB_top--;
+   stackC_top--;
   } 
   
 }
